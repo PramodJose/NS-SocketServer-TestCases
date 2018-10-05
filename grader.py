@@ -2,6 +2,7 @@ import json
 import socket
 import sys
 
+MY_TEST_CASES = 8
 
 def clientSide():
     if len(sys.argv) != 2:
@@ -36,6 +37,11 @@ def clientSide():
                 print("The code failed for the following test cases:-")
                 passed = False
             print(testNum)
+
+        if testNum == MY_TEST_CASES:
+        	choice = raw_input("The code passed all my test cases.\nDo you want to check with sir's test cases? (Y/N): ")
+        	if choice == 'N' or choice == 'n':
+        		break
         testNum += 1
 
     sockt.send(b"0\n")
